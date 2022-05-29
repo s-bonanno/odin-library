@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..700&display=swap');
+
+:root {
+  --dark-text:rgb(65, 69, 81);
+  --light-text:rgb(130, 132, 144);
+  --hover-link: rgb(60, 186, 142);
+  --background-col: rgb(246, 247, 251);
+  --rev-text: rgb(202, 205, 214);
+ }
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+body {
+  background-color: var(--background-col);
+  color: var(--light-text);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 350;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+h1 {
+  color: var(--background-col);
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+h2 {
+  color: var(--dark-text);
+  font-weight: 380;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+h3 {
+  color: var(--dark-text);
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+h3 span {
+  color: var(--light-text);
+}
+
+p {
+  color: var(--light-text);
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.top-nav a {
+  font-weight: 400;
+  color: var(--background-col);
+}
+
+a:hover {
+  color: var(--hover-link);
+  text-decoration: underline;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  margin-top: 5px;
+  display: block;
+  padding: 8px;
+  font-weight: 350;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid rgb(192, 195, 210);
+}
+
+select {
+  color: var(--dark-text);
+  margin-top: 5px;
+  display: block;
+  padding: 4px;
+  font-weight: 350;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid rgb(192, 195, 210);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.3;
+}
+
+input[type="checkbox"] {
+  vertical-align: baseline;
+  position: relative;
+  top: 1.5px;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+form {
+  display: grid;
+  gap: 20px;
+  grid-auto-rows: max-content;
+}
+
+#modalHeading {
+  margin-bottom: 15px;
+}
+
+form > div,
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+}
+
+form:valid button {
+  background-color: var(--hover-link);
+  color: white;
+  transition: all 0.25s;
+}
+
+form:not(:valid) button {
+  background-color: rgb(225, 227, 235);
+  color: rgb(186, 190, 206);
+  transition: all 0.25s;
+}
+
+button {
+  background-color: var(--rev-text);
+  padding: 7px 14px;
+  color: rgb(35, 35, 44);
+  border: none;
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+.delete-button {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url(trash.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.delete-button:hover {
+  background: url(trash-h.svg);
+}
+
+.edit-button {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url(pencil.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.edit-button:hover {
+  background: url(pencil-h.svg);
+}
+
+.page-grid {
+  display: grid;
+  grid-auto-rows: max-content ;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 30px;
+}
+
+#intro-message {
+  grid-area: 1 / 1 / -1 / 3;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+#intro-message h2 {
+  font-size: 1.4rem;
+}
+
+#intro-message p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+#intro-message a:visited,
+#intro-message a {
+  color: var(--light-text);
+}
+
+#intro-message a:hover {
+  color: var(--hover-link);
+}
+
+
+.top-nav {
+  background-color: rgb(35, 35, 44);
+  display: grid;
+  grid-template: max-content / minmax(200px, 1fr) max-content;
+  gap: 20px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.right-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.left-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#svg-books {
+  width: 40px;
+  height: 40px;
+}
+
+#svg-settings {
+  fill: var(--rev-text);
+  width: 20px;
+  height: 20px;
+}
+
+#new-book {
+  background-color: var(--rev-text);
+  padding: 7px 14px;
+  color: rgb(35, 35, 44);
+  border: none;
+  border-radius: 4px;
+  transition: all 0.25s;
+  border: 1px solid rgb(35, 35, 44);
+}
+
+#new-book:hover {
+  background-color: var(--hover-link);
+  color: white;
+  transition: all 0.25s;
+}
+
+.book-card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card p:last-of-type  {
+  flex: 1;
+  white-space: pre-wrap;
+}
+
+.book-card.book-read {
+  outline: 1px solid var(--hover-link);
+}
+
+.book-read .rating-stars::after{
+  content: "\00a0\00a0\00a0\00a0🤓\00a0🏁";
+}
+
+.book-read .book-read-label {
+  color: var(--hover-link);
+}
+
+.stars {
+  color: goldenrod;
+}
+
+.card-details {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-details p {
+  margin-bottom: 0;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  transition: all 0.5s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  max-width: 450px;
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--background-col);
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%; /* Could be more or less, depending on screen size */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  color: var(--light-text);
+  font-size: 28px;
+  font-weight: 300;
+  top: 5px;
+  right: 15px;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--dark-text);
+  text-decoration: none;
+  cursor: pointer;
+}

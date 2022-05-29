@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Mr. Library</title>
+</head>
+<body>
+  <div id="newBookModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalHeading"></h2>
+      <form action="">
+        <div>
+          <label for="bookTitle">Title</label>
+          <input type="text" name="bookTitle" id="bookTitle" placeholder="Little Red Riding Hood" required>
+        </div>
+        <div>
+          <label for="bookAuthor">Author</label>
+          <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Mr. Wolf" required>
+        </div>
+          <div>
+            <label for="bookRating">Rating</label>
+            <select id="bookRating" name="bookRating">
+              <option value="0">&#9734; &#9734; &#9734; &#9734; &#9734;</option>
+              <option value="1">&#9733; &#9734; &#9734; &#9734; &#9734;</option>
+              <option value="2">&#9733; &#9733; &#9734; &#9734; &#9734;</option>
+              <option value="3">&#9733; &#9733; &#9733; &#9734; &#9734;</option>
+              <option value="4">&#9733; &#9733; &#9733; &#9733; &#9734;</option>
+              <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+            </select>
+          </div>         
+          <div>
+            <label for="bookPages">Number of pages</label>
+            <input type="number" max="99999" name="bookPages" id="bookPages" placeholder="24" required>
+          </div>
+        <div>
+          <label for="bookDescription">Description</label>
+          <textarea name="bookDescription" id="bookDescription" rows="4" placeholder="A story about a delightful jaunt through the forest with a young conservationist and her canine companion."></textarea>
+        </div> 
+        <div>
+          <input type="checkbox" name="bookRead" id="bookRead">
+          <label for="bookRead">Read</label>
+        </div>
+        <div>
+          <button type="button" id="addBook">Save</button>
+          <button type="button" id="updateBook">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="top-nav">
+    <div class="left-nav-items">
+      <svg id="svg-books" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path style="stroke:none;fill-rule:nonzero;fill:#7e57c2;fill-opacity:1" d="m26.059 4.168-14.86 3.34c-.308.078-2.867.691-2.867 2.168v27.816c.39.008.75.008 1.059.008l16.668-5.207s1.043-.39 1.043-2.086v-25c0-.574-.47-1.039-1.043-1.039Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#4527a0;fill-opacity:1" d="m26.059 4.168-14.86 3.34c-.308.078-2.867.691-2.867 2.168v27.816c.39.008.75.008 1.059.008l16.668-5.207s1.043-.39 1.043-2.086v-25c0-.574-.47-1.039-1.043-1.039Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#7e57c2;fill-opacity:1" d="m32.293 7.594-16.668 4.168c-2.344.605-7.309 1.039-7.293-2.086h-.016V37.5h.016c-.016 3.125 4.992 3.125 7.293 3.125l16.668-5.207s1.039-.39 1.039-2.086v-24.7c0-.573-.465-1.038-1.039-1.038Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#7e57c2;fill-opacity:1" d="m34.39 8.984-14.859 3.73c-.304.079-2.863.696-2.863 2.173v27.812c.387.008.746.008 1.059.008L34.39 37.5s1.043-.39 1.043-2.082V10.023c0-.574-.47-1.039-1.043-1.039Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#bf360c;fill-opacity:1" d="m34.39 8.984-14.859 3.73c-.304.079-2.863.696-2.863 2.173v27.812c.387.008.746.008 1.059.008L34.39 37.5s1.043-.39 1.043-2.082V10.023c0-.574-.47-1.039-1.043-1.039Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#7e57c2;fill-opacity:1" d="M16.668 42.7c-.02 3.124 4.992 3.132 7.289 3.132l16.668-5.555s1.043-.39 1.043-2.082V13.543c0-.574-.469-1.04-1.043-1.04L23.957 16.97c-2.344.605-7.309 1.043-7.289-2.082"/><path style="stroke:none;fill-rule:nonzero;fill:#ff3d00;fill-opacity:1" d="M16.668 42.7c-.02 3.124 4.992 3.132 7.289 3.132l16.668-5.555s1.043-.39 1.043-2.082V13.543c0-.574-.469-1.04-1.043-1.04L23.957 16.97c-2.344.605-7.309 1.043-7.289-2.082"/><path style="stroke:none;fill-rule:nonzero;fill:#ffe0b2;fill-opacity:1" d="M11.457 10.98c.79.457 2.047.782 3.148 1 .372-.066.72-.14 1.02-.218L30.746 7.98l-4.703-1.73-13.457 3.254s-2.777.523-1.129 1.476Zm8.336 5.211c.785.454 2.043.778 3.145.997.37-.067.718-.141 1.019-.22l15.516-4.155-5.098-1.747-13.457 3.649s-2.773.52-1.125 1.476Zm0 0"/><path style="stroke:none;fill-rule:nonzero;fill:#ffecb3;fill-opacity:1" d="M39.582 26.043v-5.211L25 25v5.207Zm0 0"/></svg>
+      <h1>Mr. Library</h1>
+    </div>
+    <div class="right-nav-items">
+      <a id="clear-books-link">Clear</a>
+      <a id="demo-books-link">Add demo books</a>
+      <button id="new-book">New book&nbsp;&nbsp;+</button>
+      <svg id="svg-settings"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="stroke:none;fill-rule:nonzero;fill-opacity:1" d="M10.488 2c-.476 0-.886.34-.98.809l-.332 1.714a7.966 7.966 0 0 0-2.246 1.29L5.285 5.25a1 1 0 0 0-1.191.445l-1.508 2.61c-.238.418-.152.945.21 1.258l1.317 1.144A7.84 7.84 0 0 0 4 12c0 .441.043.871.113 1.293l-1.316 1.145a.998.998 0 0 0-.211 1.253l1.508 2.618a1 1 0 0 0 1.191.445l1.645-.567c.668.547 1.425.981 2.246 1.29l.332 1.714c.094.47.504.809.98.809h3.024c.476 0 .886-.34.976-.809l.336-1.714a7.966 7.966 0 0 0 2.246-1.29l1.645.563a.997.997 0 0 0 1.191-.441l1.508-2.618a.998.998 0 0 0-.21-1.254l-1.317-1.144A7.84 7.84 0 0 0 20 12a7.84 7.84 0 0 0-.113-1.293l1.316-1.145c.363-.312.45-.84.211-1.257l-1.508-2.61a.996.996 0 0 0-1.191-.449l-1.645.566a7.966 7.966 0 0 0-2.246-1.289l-.336-1.714A.996.996 0 0 0 13.512 2ZM12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4Zm0 0"/></svg>
+    </div>
+  </div>
+  <div class="page-grid">
+  </div>
+</body>
+</html>
