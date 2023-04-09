@@ -37,7 +37,7 @@ let myLibrary = [];
 insertIntroMessage();
 
 // Object constructor
-// Change this to a class
+// Change this to a class.. test branch update
 function Book(title, author, pages, read, description, rating, bookIndex) {
   this.title = title
   this.author = author
