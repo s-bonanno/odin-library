@@ -38,20 +38,29 @@ insertIntroMessage();
 
 // Object constructor
 // Change this to a class.. test branch update
-function Book(title, author, pages, read, description, rating, bookIndex) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-  this.description = description
-  this.rating = rating
-  this.bookIndex = bookIndex
+class Book {
+  constructor(
+    title,
+    author,
+    pages,
+    read,
+    description,
+    rating,
+    bookIndex,
+  ) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+    this.description = description
+    this.rating = rating
+    this.bookIndex = bookIndex
+  }
 }
 
 //Function to update 'read' on Book objects
 Book.prototype.readStatus = function() {
   this.read === true ? this.read = false : this.read = true;
-  console.log(this)
 }
 
 /* This function collects the data from the form, and adds it to the
