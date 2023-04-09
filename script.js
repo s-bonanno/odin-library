@@ -7,6 +7,8 @@ const pageGrid = document.querySelector('.page-grid');
 const addDemoBooksLink = document.querySelector('#demo-books-link');
 const clearBooks = document.querySelector('#clear-books-link');
 const modalHeading = document.querySelector('#modalHeading');
+const sortAlphabetically = document.querySelector('#sort-alphabetically');
+const sortStars = document.querySelector('#sort-stars');
 const modal = document.querySelector("#newBookModal");
 const modalButton = document.querySelector("#new-book");
 const span = document.querySelector('.close');
@@ -243,6 +245,25 @@ window.onclick = function(event) {
   }
 }
 
+// From W3 schools https://www.w3schools.com/js/js_array_sort.asp
+sortAlphabetically.onclick = function() {
+  myLibrary.sort(function(a, b){
+    let x = a.title.toLowerCase();
+    let y = b.title.toLowerCase();
+    if (x > y) {return -1;}
+    if (x < y) {return 1;}
+    return 0;
+  });  
+  displayBooks();
+}
+
+sortStars.onclick = function() {
+  myLibrary.sort(function(a, b){return parseInt(a.rating) - parseInt(b.rating)});
+  displayBooks();
+}
+
+
+
 //Add demo books to the array
 function demoArray() {
   myLibrary.push(new Book(
@@ -309,4 +330,4 @@ function demoArray() {
     ''
   ));
   displayBooks();
-};
+}
