@@ -37,6 +37,7 @@ let myLibrary = [];
 insertIntroMessage();
 
 // Object constructor
+// Change this to a class
 function Book(title, author, pages, read, description, rating, bookIndex) {
   this.title = title
   this.author = author
